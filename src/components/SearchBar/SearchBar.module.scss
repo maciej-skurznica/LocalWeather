@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+
+.container {
+  flex-direction: column;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
+  border-radius: 0.5rem;
+  margin-top: 5rem;
+  position: relative;
+
+  :global {
+    input {
+      width: 26rem;
+      height: 4rem;
+      padding: 0 1.2rem 0 3.4rem;
+      border-radius: 0.5rem;
+      background-color: $grey-input;
+      border: none;
+      transition: all 0.2s ease-in-out;
+
+      &::placeholder {
+        color: $grey-placeholder;
+      }
+
+      &:focus {
+        outline: none;
+        padding-left: 1.2rem;
+
+        & + .icon-wrapper {
+          opacity: 0;
+        }
+      }
+    }
+
+    .icon-wrapper {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.2rem;
+      z-index: 1;
+      color: $grey-placeholder;
+      font-size: 1.5rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .dropdown {
+      margin: 0 1.2rem;
+      padding: 1.2rem 0;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: all 0.2s linear;
+
+      &.hidden {
+        padding: 0;
+        gap: 0;
+
+        > div {
+          height: 0;
+          opacity: 0;
+        }
+      }
+
+      > div {
+        font-size: 1.2rem;
+        align-items: center;
+        height: 1.2rem;
+        opacity: 1;
+        transition: all 0.2s linear;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-3) {
+  .container {
+    margin-top: 3rem;
+  }
+}
