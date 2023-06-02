@@ -6,8 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write . --config ./.prettierrc",
+    "lint:styles": "stylelint '**/*.{css, scss}'",
+    "lint:styles:fix": "stylelint '**/*.{css, scss}' --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint --fix",
+    "**/*.{css,scss}": "stylelint --fix",
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -24,6 +34,8 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
     "sass": "^1.62.1",
