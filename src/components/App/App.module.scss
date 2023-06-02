@@ -1,3 +1,7 @@
 .test {
   color: red;
+
+  input::placeholder {
+    color: blue;
+  }
 }
