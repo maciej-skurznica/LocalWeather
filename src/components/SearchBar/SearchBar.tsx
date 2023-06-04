@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import { Location } from "./SearchBar.interfaces";
 import styles from "./SearchBar.module.scss";
 
@@ -10,6 +11,8 @@ const SearchBar = () => {
   const [hasResults, setHasResults] = useState(false);
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState({} as Location);
+
+  const searchBarRef = useClickOutside(() => setQuery(""));
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -57,7 +60,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={searchBarRef}>
       <input
         type="text"
         placeholder="Location..."

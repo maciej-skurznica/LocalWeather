@@ -8,6 +8,8 @@
   position: relative;
   width: 35rem;
   max-width: 35rem;
+  background-color: $grey-dropdown;
+  color: $foreground;
 
   :global {
     input {

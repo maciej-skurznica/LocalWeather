@@ -42,11 +42,11 @@ html {
     font-size: 50%;
   }
 
-  // @media (prefers-color-scheme: dark) {
-  //   color: $foreground-dark;
-  //   background: linear-gradient(to bottom, transparent, $background-dark-end)
-  //     $background-dark-start;
-  // }
+  @media (prefers-color-scheme: dark) {
+    color: $foreground-dark;
+    background: linear-gradient(to bottom, transparent, $background-dark-end)
+      $background-dark-start;
+  }
 }
 
 body {
