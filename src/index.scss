@@ -36,8 +36,7 @@ html {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 62.5%;
   color: $foreground;
-  background: linear-gradient(to bottom, transparent, $background-end)
-    $background-start;
+  background: linear-gradient(to bottom, transparent, $background-end) $background-start;
 
   @media only screen and (max-width: $breakpoint-2) {
     font-size: 50%;
