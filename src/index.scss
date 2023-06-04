@@ -36,8 +36,7 @@ html {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 62.5%;
   color: $foreground;
-  background: linear-gradient(to bottom, transparent, $background-end)
-    $background-start;
+  background: linear-gradient(to bottom, transparent, $background-end) $background-start;
 
   @media only screen and (max-width: $breakpoint-2) {
     font-size: 50%;
@@ -66,9 +65,9 @@ body {
 // App
 #root {
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100vh;
   width: 100%;
+  position: relative;
 
   header {
     display: flex;
@@ -84,12 +83,23 @@ body {
     }
   }
 
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
   footer {
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
     padding: 0.5rem 0 1rem;
     border-top: 1px solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   @media only screen and (max-width: $breakpoint-3) {
