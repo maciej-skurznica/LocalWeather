@@ -1,3 +1,8 @@
+export interface SearchBarProps {
+  selectedLocation: Location;
+  setSelectedLocation: (location: Location) => void;
+}
+
 export interface Location {
   id: number;
   name: string;

@@ -2,15 +2,14 @@ import { Icon } from "@iconify/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
-import { Location } from "./SearchBar.interfaces";
+import { Location, SearchBarProps } from "./SearchBar.interfaces";
 import styles from "./SearchBar.module.scss";
 
-const SearchBar = () => {
+const SearchBar = ({ selectedLocation, setSelectedLocation }: SearchBarProps) => {
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState({} as Location);
 
   const searchBarRef = useClickOutside(() => setQuery(""));
 
@@ -36,23 +35,6 @@ const SearchBar = () => {
 
     return () => clearTimeout(timeout);
   }, [query]);
-
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const {
-          data: { daily }
-        } = await axios.get(
-          `https://api.open-meteo.com/v1/forecast?latitude=${selectedLocation.latitude}&longitude=${selectedLocation.longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timeformat=unixtime&forecast_days=6&timezone=Europe%2FLondon`
-        );
-        console.log(daily);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    selectedLocation.id && fetchWeather();
-  }, [selectedLocation]);
 
   const { loading, noResults, results } = {
     loading: <div>Loading...</div>,
