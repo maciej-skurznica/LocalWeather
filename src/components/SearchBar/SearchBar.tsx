@@ -37,6 +37,23 @@ const SearchBar = () => {
     return () => clearTimeout(timeout);
   }, [query]);
 
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const {
+          data: { daily }
+        } = await axios.get(
+          `https://api.open-meteo.com/v1/forecast?latitude=${selectedLocation.latitude}&longitude=${selectedLocation.longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timeformat=unixtime&forecast_days=6&timezone=Europe%2FLondon`
+        );
+        console.log(daily);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    selectedLocation.id && fetchWeather();
+  }, [selectedLocation]);
+
   const { loading, noResults, results } = {
     loading: <div>Loading...</div>,
     noResults: <div>No locations found</div>,
@@ -46,7 +63,8 @@ const SearchBar = () => {
           className="disable-scrollbar"
           key={id}
           onClick={() => {
-            setSelectedLocation({ id, name, latitude, longitude });
+            selectedLocation.id !== id &&
+              setSelectedLocation({ id, name, latitude, longitude });
             setQuery("");
           }}
         >
