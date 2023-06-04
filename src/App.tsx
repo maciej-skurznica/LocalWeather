@@ -36,6 +36,7 @@ function App() {
           selectedLocation={selectedLocation}
           setSelectedLocation={setSelectedLocation}
         />
+        <div className="location">{selectedLocation?.name}</div>
         {/* weather section */}
         {void console.log(weatherData)}
       </main>
