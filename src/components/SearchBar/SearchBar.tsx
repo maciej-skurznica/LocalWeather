@@ -46,7 +46,7 @@ const SearchBar = ({ selectedLocation, setSelectedLocation }: SearchBarProps) =>
           key={id}
           onClick={() => {
             selectedLocation.id !== id &&
-              setSelectedLocation({ id, name, latitude, longitude });
+              setSelectedLocation({ id, name, latitude, longitude, country });
             setQuery("");
           }}
         >
