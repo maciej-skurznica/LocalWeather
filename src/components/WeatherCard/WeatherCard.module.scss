@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.weather-card {
+  min-width: 20rem;
+  height: 30rem;
+  background-color: $gray-weather-card;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
+  flex: 1;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    filter: drop-shadow(0 2px 3px rgb(0 0 0 / 20%));
+  }
+}
