@@ -52,10 +52,13 @@ function App() {
           selectedLocation={selectedLocation}
           setSelectedLocation={setSelectedLocation}
         />
-        <div className="location">{selectedLocation?.name}</div>
+        <div className="location">
+          {selectedLocation?.name}
+          {selectedLocation.country && ", " + selectedLocation.country}
+        </div>
         <section className="weather">
           {weatherData.length > 0 &&
-            weatherData.map((el) => <WeatherCard key={el.id} {...el} />)}
+            weatherData.map((el, i) => i > 0 && <WeatherCard key={el.id} {...el} />)}
         </section>
       </main>
       <footer>© Maciej Skurznica, 2023</footer>

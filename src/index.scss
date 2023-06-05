@@ -14,22 +14,14 @@ h1 {
   font-size: 2.5rem;
 }
 
-h2 {
-  // font-size: 2.317rem;
-  // line-height: 3.127rem;
-  // font-weight: 500;
-}
-
 h3 {
-  // font-size: 2rem;
-  // line-height: 2.7rem;
-  // font-weight: 500;
-}
+  font-size: 1.4rem;
+  font-weight: 500;
 
-p {
-  // font-size: 1.8rem;
-  // line-height: 2.434rem;
-  // font-weight: 400;
+  span {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
 }
 
 html {
@@ -88,8 +80,9 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 5rem;
+    padding: 5rem 0;
     gap: 4rem;
+    flex: 1;
 
     .location {
       justify-content: flex-start;
@@ -104,7 +97,13 @@ body {
       margin-top: 8rem;
     }
 
-    // .weather {}
+    .weather {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   footer {
@@ -113,10 +112,6 @@ body {
     font-size: 1.2rem;
     padding: 0.5rem 0 1rem;
     border-top: 1px solid;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
   }
 
   @media only screen and (max-width: $breakpoint-3) {
@@ -125,7 +120,7 @@ body {
     }
 
     main {
-      padding-top: 3rem;
+      padding: 3rem 0;
       gap: 2rem;
     }
   }
