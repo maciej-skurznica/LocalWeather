@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <header>
-        <img src="/profile-photo.jpg" alt="logo" />
+        <img src="/logo.png" alt="logo" />
         <h1>Local Weather</h1>
       </header>
       <main>
